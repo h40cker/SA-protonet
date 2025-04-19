@@ -20,7 +20,6 @@ if you want to train the model
 ```bash
 python train.py
 if you want to test the model you trained
-```bash
 python test.py
 
 
