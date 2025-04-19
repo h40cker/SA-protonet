@@ -5,10 +5,12 @@
 ![image](https://github.com/user-attachments/assets/f883f813-fa27-4af3-a0f2-23f3b256146d)
 
 ## Preparation
-1. download all the package that are needed
+1. download all the packages that are needed(it may lack some packages)
+```bash
+pip install -r requirements.txt
 
 
-2. Download the datasets and put them into corresponding folders :<br/>
+3. Download the datasets and put them into corresponding folders :<br/>
     - ***mini*ImageNet**: download from [CSS](https://github.com/anyuexuan/CSS) and put in `data/mini-imagenet` folder.
 
 
