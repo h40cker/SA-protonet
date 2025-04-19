@@ -16,10 +16,10 @@
 [Optional] The pre-trained models can be downloaded from [here](https://pan.baidu.com/s/1Jx8bEDleg_AudVOEB9dpig?password=hetu). Extract and put the content in the save folder.
 
 ## Experiments
-if you want to train the model 
 ```bash
+#if you want to train the model 
 python train.py
-if you want to test the model you trained
+#if you want to test the model you trained
 python test.py
 
 
