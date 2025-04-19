@@ -17,9 +17,11 @@
 
 ## Experiments
 if you want to train the model 
-# Title  python train.py
-if you want to test the model you trained 
-# Title python test.py
+```bash
+python train.py
+if you want to test the model you trained
+```bash
+python test.py
 
 
 
