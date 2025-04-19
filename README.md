@@ -13,7 +13,7 @@
 
 
 ## Pre-trained Models
-[Optional] The pre-trained models can be downloaded from [here](https://drive.google.com/file/d/14IOHnVfVACpkhjj1o3ZjwG7YD4p6ULLM/view?usp=sharing). Extract and put the content in the save folder.
+[Optional] The pre-trained models can be downloaded from [here](https://pan.baidu.com/s/1Jx8bEDleg_AudVOEB9dpig?password=hetu). Extract and put the content in the save folder.
 
 ## Experiments
 if you want to train the model 
