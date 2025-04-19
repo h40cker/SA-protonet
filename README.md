@@ -6,11 +6,11 @@
 
 ## Preparation
 1. download all the packages that are needed(it may lack some packages)
-```bash
+```
 pip install -r requirements.txt
+```
 
-
-3. Download the datasets and put them into corresponding folders :<br/>
+2. Download the datasets and put them into corresponding folders :<br/>
     - ***mini*ImageNet**: download from [CSS](https://github.com/anyuexuan/CSS) and put in `data/mini-imagenet` folder.
 
 
