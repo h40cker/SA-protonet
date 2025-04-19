@@ -1,0 +1,21 @@
+# 核心依赖
+torch==2.0.1
+torchvision==0.15.2
+numpy==1.24.3
+pandas==2.0.3
+Pillow==9.5.0
+
+# 可视化与日志
+tensorboard==2.13.0
+matplotlib==3.7.2
+
+# 数据处理
+tqdm==4.65.0
+scikit-learn==1.3.0
+
+# 可选加速
+cudatoolkit==11.8  # 仅限CUDA环境
+
+# 开发工具
+ipython==8.14.0
+jupyter==1.0.0
