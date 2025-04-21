@@ -12,6 +12,8 @@ from tqdm import tqdm
 import time
 import csv
 from datetime import datetime
+
+import utils
 from datasets.miniimagenet import MiniImageNet
 from model.SAprotonet import  EnhancedProtoNet
 from utils import argsfortrain
@@ -32,7 +34,12 @@ def setup_logging():
     
     return writer, csv_path
 
-
+# 对比损失函数（可以根据需求选择不同的计算方式）
+def contrastive_loss(query_features, support_features, margin=1.0):
+    # 假设query_features和support_features都是N x D的特征向量（N:样本数，D:特征维度）
+    pairwise_distances = torch.norm(query_features[:, None] - support_features[None, :], p=2, dim=-1)
+    loss = torch.mean(F.relu(pairwise_distances - margin))  # 平均损失
+    return loss
 
 def get_n_way_k_shot_batch(dataset, n_way, k_shot, n_query):
     """生成n-way k-shot任务"""
@@ -57,7 +64,7 @@ def get_n_way_k_shot_batch(dataset, n_way, k_shot, n_query):
 
 
 # -------------------- 3. 训练与验证模块 --------------------
-def train_epoch(model, train_dataset, optimizer, n_way, k_shot, n_query, epoch):
+def train_epoch(model, train_dataset, optimizer, n_way, k_shot, n_query, epoch, margin=1.0):
     model.train()
     total_loss, total_acc = 0, 0
     
@@ -71,6 +78,14 @@ def train_epoch(model, train_dataset, optimizer, n_way, k_shot, n_query, epoch):
         logits = model.classify(query_features, prototypes)
         
         loss = F.cross_entropy(logits, query_labels)
+        # 对比损失（如果选择使用）
+        contrastive_loss_value = 0
+
+        if utils.argsfortrain.use_contrastive_loss:
+            contrastive_loss_value = contrastive_loss(query_features, support_features, margin)
+
+        # 总损失（分类损失 + 对比损失）
+        loss = loss + contrastive_loss_value
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
